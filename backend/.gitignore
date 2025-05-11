@@ -1,0 +1,8 @@
+# env files
+.env*
+
+# vercel
+.vercel
+
+# dependencies
+/node_modules
