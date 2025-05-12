@@ -10,8 +10,15 @@ const { UserModel } = require('./models/user.model');
 const app = express();
 
 // Middleware
-app.use(cors());
+// app.use(cors());
 // app.use(cors({ origin: "*" }));
+// Add CORS middleware BEFORE routes
+app.use(cors({
+  origin: '*', // Or set to specific frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
