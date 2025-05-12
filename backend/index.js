@@ -10,7 +10,12 @@ const { UserModel } = require('./models/user.model');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "https://your-frontend-domain.com"],
+  credentials: true
+}));
+
+// app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
